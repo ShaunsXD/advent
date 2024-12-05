@@ -87,3 +87,9 @@ def part2():
             text_modified += text[i]
 
     print(doMul(text_modified))
+
+
+if __name__ == "__main__":
+    part1()
+    part2()
+

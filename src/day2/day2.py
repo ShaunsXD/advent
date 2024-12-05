@@ -112,3 +112,8 @@ def part2():
                     break
 
     print(safe)
+
+
+if __name__ == "__main__":
+    part1()
+    part2()
