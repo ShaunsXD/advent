@@ -42,6 +42,7 @@ def part1():
             arr.append(line)
 
     r, c = findGuard(arr)
+    start_r, start_c = findGuard(arr)
     dir = arr[r][c]
 
     while 0 <= r < len(arr) and 0 <= c < len(arr[0]):
@@ -74,6 +75,7 @@ def part1():
                 dir = "v"
 
     print(countX(arr))
+    return arr, start_r, start_c
 
 
 def findCycle(arr):
@@ -149,32 +151,28 @@ def findCycle(arr):
 
 def part2():
     """
-    Day 6 Part 2, brute force every input with an obstacle and check if a cycle exists. Prints # of grids that give
-    a cycle after adding # to cell.
+    Day 6 Part 2, only add obstacles to the visited path and count if a cycle exists
 
     :return:
     """
-    arr = []
+    import time
+    a = time.time()
+
+    arr, start_r, start_c = part1()
     cycles = 0
-    with open("6.txt", "r") as file:
-        for l in file:
-            line = []
-            l = l.strip()
-            for char in l:
-                line.append(char)
-            arr.append(line)
+    arr[start_r][start_c] = "^"
     i = 0
     for r in range(len(arr)):
         for c in range(len(arr[0])):
             new_arr = [l[:] for l in arr]
-            if new_arr[r][c] == ".":
+            if new_arr[r][c] == "X":
                 new_arr[r][c] = "#"
                 i += 1
                 #print(i)
                 if findCycle(new_arr):
                     cycles += 1
     print(cycles)
-
+    print(time.time() - a)
 
 if __name__ == "__main__":
     part1()
