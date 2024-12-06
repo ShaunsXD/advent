@@ -155,8 +155,6 @@ def part2():
 
     :return:
     """
-    import time
-    a = time.time()
 
     arr, start_r, start_c = part1()
     cycles = 0
@@ -172,7 +170,6 @@ def part2():
                 if findCycle(new_arr):
                     cycles += 1
     print(cycles)
-    print(time.time() - a)
 
 if __name__ == "__main__":
     part1()
