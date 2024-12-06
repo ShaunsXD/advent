@@ -1,6 +1,7 @@
 def findGuard(arr):
     """
     Find the location of the guard on the grid
+
     :param arr:
     :return:
     """
@@ -13,6 +14,7 @@ def findGuard(arr):
 def countX(arr):
     """
     Count the cells containing X
+
     :param arr:
     :return:
     """
@@ -27,6 +29,7 @@ def countX(arr):
 def part1():
     """
     Day 6 Part 1 Prints Count of X after traversing path
+
     :return:
     """
     arr = []
@@ -76,6 +79,7 @@ def part1():
 def findCycle(arr):
     """
     very bad cycle finding algorithm
+
     :param arr:
     :return:
     """
@@ -146,7 +150,8 @@ def findCycle(arr):
 def part2():
     """
     Day 6 Part 2, brute force every input with an obstacle and check if a cycle exists. Prints # of grids that give
-    a cycle after adding # to cell.\
+    a cycle after adding # to cell.
+
     :return:
     """
     arr = []

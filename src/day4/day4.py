@@ -4,6 +4,7 @@
 def findAllOverlap(string, sub):
     """
     Find all occurences of a substring in a string with overlaps
+
     :param string:
     :param sub:
     :return:
@@ -22,6 +23,7 @@ def findAllOverlap(string, sub):
 def countXmas(line):
     """
     Count the number of XMAS in a line, forwards and backwards
+
     :param line:
     :return:
     """
@@ -36,6 +38,7 @@ def diagonalize(text):
     """
     Diagonalize traversal of a matrix
     https://www.geeksforgeeks.org/zigzag-or-diagonal-traversal-of-matrix/
+
     :param text:
     :return:
     """
@@ -53,6 +56,7 @@ def diagonalize(text):
 def part1():
     """
     Day 4 Part 1 for AOC24, prints the number of XMAS
+
     :return:
     """
     count = 0
@@ -95,6 +99,7 @@ def part1():
 def countMas(line):
     """
     Count the number of MAS in a line, forwards and backwards
+
     :param line:
     :return:
     """
@@ -107,6 +112,7 @@ def countMas(line):
 def part2():
     """
     Day 4 Part 2 for AOC24, prints the number of MAS
+
     :return:
     """
     count = 0

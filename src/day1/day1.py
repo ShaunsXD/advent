@@ -1,6 +1,7 @@
 def textToArr(filename):
     """
     Read a text file and return a list of lists
+
     :param filename: the name of the file
     :type filename: str
     :return: the textfile, stripped and split on default values
@@ -17,6 +18,7 @@ def textToArr(filename):
 def part1():
     """
     Day 1 Part 1 for AOC24, prints the sum
+
     :return:
     """
     left = []
@@ -39,6 +41,7 @@ def part1():
 def part2():
     """
     Day 1 Part 2 for AOC24, prints the similarity score
+
     :return:
     """
     right_dict = {}

@@ -1,6 +1,7 @@
 def doMul(text):
     """
     Multiply values in a string based on mul() format
+
     :param text:
     :return:
     """
@@ -29,6 +30,7 @@ def doMul(text):
 def findAll(string, sub):
     """
     Find all occurences of a substring in a string
+
     :param string:
     :param sub:
     :return:
@@ -47,6 +49,7 @@ def findAll(string, sub):
 def part1():
     """
     Day 3 Part 1 for AOC24, prints the sum
+
     :return:
     """
     sums = 0
@@ -58,6 +61,7 @@ def part1():
 def part2():
     """
     Day 3 Part 2 for AOC24, prints the sum
+
     :return:
     """
     with open("3.txt", "r") as file:

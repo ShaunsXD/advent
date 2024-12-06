@@ -1,6 +1,7 @@
 def textToArr(file):
     """
     Convert text file to 2D array
+
     :param file:
     :return:
     """
@@ -14,6 +15,7 @@ def textToArr(file):
 def part1():
     """
     Day 4 Part 1 for AOC24, prints the total score of cards
+
     :return:
     """
     # 2023 day 4
@@ -50,6 +52,7 @@ def part1():
 def part2():
     """
     Day 4 Part 2 for AOC24, prints the total dupes of cards
+
     :return:
     """
     text = textToArr("2023.txt")

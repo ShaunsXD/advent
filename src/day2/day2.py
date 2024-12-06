@@ -1,6 +1,7 @@
 def textToArr(file):
     """
     Convert text file to 2D array
+
     :param file:
     :return:
     """
@@ -14,6 +15,7 @@ def textToArr(file):
 def getDifferences(level):
     """
     Get differences between elements in a list
+
     :param level:
     :return:
     """
@@ -26,6 +28,7 @@ def getDifferences(level):
 def positive(differences):
     """
     Check if all values in a list are positive
+
     :param differences:
     :return:
     """
@@ -35,6 +38,7 @@ def positive(differences):
 def negative(differences):
     """
     Check if all values in a list are negative
+
     :param differences:
     :return:
     """
@@ -44,6 +48,7 @@ def negative(differences):
 def steps(differences):
     """
     Check if all values in a list are 1 or 3
+
     :param differences:
     :return:
     """
@@ -53,6 +58,7 @@ def steps(differences):
 def safeLevel(differences):
     """
     Check if a level is safe
+
     :param differences:
     :return:
     """
@@ -66,6 +72,7 @@ def safeLevel(differences):
 def part1():
     """
     Day 2 Part 1 for AOC24, prints the number of safe levels
+
     :return:
     """
     safe = 0
@@ -87,6 +94,7 @@ def part1():
 def part2():
     """
     Day 2 Part 2 for AOC24, prints the number of safe levels after removing 1 element
+
     :return:
     """
     safe = 0

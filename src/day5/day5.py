@@ -5,6 +5,7 @@ def isValid(page):
     check if the pair is a valid rule in rules
     if valid pair, move on to the next pair
     if not valid pair, then return false
+
     :param page:
     :return:
     """
@@ -36,6 +37,7 @@ def isValid(page):
 def part1():
     """
     Day 5 Part 1 for AOC24, prints the sum of middle index of valid pages
+
     :return:
     """
     sum = 0
@@ -57,6 +59,7 @@ def part1():
 def part2():
     """
     Day 5 Part 2 for AOC24, prints the sum of middle index of valid pages after swapping invalid pairs
+
     :return:
     """
     sum = 0
