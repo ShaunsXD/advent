@@ -1,8 +1,10 @@
 def textToArr(filename):
     """
     Read a text file and return a list of lists
-    :param filename:
-    :return:
+    :param filename: the name of the file
+    :type filename: str
+    :return: the textfile, stripped and split on default values
+    :rtype: list
     """
     arr = []
     with open(filename, "r") as file:
