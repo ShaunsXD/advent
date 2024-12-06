@@ -1,4 +1,9 @@
 def findGuard(arr):
+    """
+    Find the location of the guard on the grid
+    :param arr:
+    :return:
+    """
     for r in range(len(arr)):
         for c in range(len(arr[0])):
             if arr[r][c] == '^' or arr[r][c] == 'v' or arr[r][c] == '<' or arr[r][c] == '>':
@@ -6,6 +11,11 @@ def findGuard(arr):
 
 
 def countX(arr):
+    """
+    Count the cells containing X
+    :param arr:
+    :return:
+    """
     count = 0
     for r in range(len(arr)):
         for c in range(len(arr[0])):
@@ -15,6 +25,10 @@ def countX(arr):
 
 
 def part1():
+    """
+    Day 6 Part 1 Prints Count of X after traversing path
+    :return:
+    """
     arr = []
     with open("6.txt", "r") as file:
         for l in file:
@@ -60,6 +74,11 @@ def part1():
 
 
 def findCycle(arr):
+    """
+    very bad cycle finding algorithm
+    :param arr:
+    :return:
+    """
     r, c = findGuard(arr)
     dir = arr[r][c]
     count = 0
@@ -125,6 +144,11 @@ def findCycle(arr):
     return False
 
 def part2():
+    """
+    Day 6 Part 2, brute force every input with an obstacle and check if a cycle exists. Prints # of grids that give
+    a cycle after adding # to cell.\
+    :return:
+    """
     arr = []
     cycles = 0
     with open("6.txt", "r") as file:
