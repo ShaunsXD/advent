@@ -1,3 +1,7 @@
+import sys
+sys.setrecursionlimit(10**6)
+
+
 def part1():
     with open("7.txt", "r") as file:
         data = file.read().splitlines()
@@ -11,29 +15,64 @@ def part1():
         line = line[line.find(":") + 2:].split(" ")
         nums.append([int(val) for val in line])
 
-    operators = ["+", "*"]
+    def dfs(target, num_list, result):
+        if not num_list:
+            if result == target:
+                return True
+            return False
+        if result > target:
+            return False
+
+        if dfs(target, num_list[1:], result + num_list[0]):
+            return True
+        if dfs(target, num_list[1:], result * num_list[0]):
+            return True
+        return False
 
     for i in range(len(targets)):
-        print(i)
-        target = targets[i]
-        num_list = nums[i]
-        num_operations = len(num_list) - 1
-        for j in range(2 ** num_operations):
-            operations = []
-            for k in range(num_operations):
-                operations.append(operators[int(j / (2 ** k)) % 2])
-            # print(operations)
-
-            result = num_list[0]
-            for k in range(num_operations):
-                if operations[k] == "+":
-                    result += num_list[k + 1]
-                elif operations[k] == "*":
-                    result *= num_list[k + 1]
-                if result > target:
-                    break
-
-            if result == target:
-                ans += target
-                break
+        if dfs(targets[i], nums[i], 0):
+            ans += targets[i]
+            print(targets[i])
     print(ans)
+
+
+
+def part2():
+    with open("7.txt", "r") as file:
+        data = file.read().splitlines()
+    ans = 0
+    targets = []
+    nums = []
+    for line in data:
+        target = line[0:line.find(":")]
+        targets.append(int(target))
+
+        line = line[line.find(":") + 2:].split(" ")
+        nums.append([int(val) for val in line])
+
+    def dfs(target, num_list, result):
+        if not num_list:
+            if result == target:
+                return True
+            return False
+        if result > target:
+            return False
+
+        if dfs(target, num_list[1:], result + num_list[0]):
+            return True
+        if dfs(target, num_list[1:], result * num_list[0]):
+            return True
+        if dfs(target, num_list[1:], int(str(result) + str(num_list[0]))):
+            return True
+
+
+    for i in range(len(targets)):
+        if dfs(targets[i], nums[i], 0):
+            ans += targets[i]
+            print(targets[i])
+    print(ans)
+
+
+if __name__ == "__main__":
+    part1()
+    part2()
