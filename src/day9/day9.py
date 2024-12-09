@@ -1,41 +1,9 @@
-def part1():
-    disk = []
-    new_disk = []
-    id = 0
-    with open("9.txt", "r") as file:
-        line = file.readline().strip()
-        for char in line:
-            disk.append(int(char))
-
-    for i in range(len(disk)):
-        if i % 2 == 0:
-            for _ in range(disk[i]):
-                new_disk.append(id)
-            id += 1
-        else:
-            for _ in range(disk[i]):
-                new_disk.append(".")
-
-    #print(new_disk)
-
-    while "." in new_disk:
-        char = new_disk[-1]
-        if char == ".":
-            new_disk.pop()
-        else:
-            free_idx = new_disk.index(".")
-            new_disk[free_idx] = new_disk.pop()
-
-    id = 0
-    sum = 0
-    for char in new_disk:
-        if char != ".":
-            sum += id * int(char)
-            id += 1
-    print(sum)
-
-
-def part2():
+def part2(filesize = None):
+    """
+    AOC Day 9 Part 2
+    :param filesize: if true then allocate each filesize as 1 bit.
+    :return:
+    """
     disk = []
     new_disk = []
 
@@ -50,9 +18,12 @@ def part2():
 
     for i in range(len(disk)):
         if i % 2 == 0:
-            alloc_list.append([disk[i], len(new_disk)])
+            if not filesize:
+                alloc_list.append([disk[i], len(new_disk)])
             for _ in range(disk[i]):
                 new_disk.append(id)
+                if filesize:
+                    alloc_list.append([1, len(new_disk) - 1])
             id += 1
         else:
             free_list.append([disk[i], len(new_disk)])
@@ -101,5 +72,5 @@ def part2():
 
 
 if __name__ == "__main__":
-    part1()
+    part2(filesize=True)
     part2()

@@ -1,5 +1,8 @@
-def part1():
-    count = 0
+def getAntennas():
+    """
+    Setup to get the antennas and the grid
+    :return: Antennas dictionary and array grid
+    """
     arr = []
     with open("8.txt", "r") as file:
         for l in file:
@@ -17,10 +20,18 @@ def part1():
                 if char not in antennas:
                     antennas[char] = []
                 antennas[char].append((i, j))
+    return antennas, arr
 
+
+def part1():
+    """
+    AOC Day 8 Part 1, colinear antennas
+    :return:
+    """
+    count = 0
+    antennas, arr = getAntennas()
     for antenna in antennas:
         coords = antennas[antenna]
-        print(antenna)
         for i in range(len(coords)):
             for j in range(len(coords)):
                 if i != j:
@@ -42,25 +53,12 @@ def part1():
 
 
 def part2():
+    """
+    AOC Day 8 Part 2, spanning colinear antennas
+    :return:
+    """
     count = 0
-    arr = []
-    with open("8.txt", "r") as file:
-        for l in file:
-            line = []
-            empty_line = []
-            l = l.strip()
-            for char in l:
-                line.append(char)
-            arr.append(line)
-
-    antennas = {}
-    for i in range(len(arr)):
-        for j in range(len(arr[0])):
-            char = arr[i][j]
-            if char != ".":
-                if char not in antennas:
-                    antennas[char] = []
-                antennas[char].append((i, j))
+    antennas, arr = getAntennas()
 
     for antenna in antennas:
         coords = antennas[antenna]
@@ -79,12 +77,12 @@ def part2():
                         newY += dY
 
     for line in arr:
-        print(line)
-        print()
         for char in line:
             if char != ".":
                 count += 1
     print(count)
 
 
-part2()
+if __name__ == "__main__":
+    part1()
+    part2()
