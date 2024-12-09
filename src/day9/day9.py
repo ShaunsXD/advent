@@ -11,7 +11,6 @@ def part1():
         if i % 2 == 0:
             for i in range(disk[i]):
                 new_disk.append(id)
-
             id += 1
         else:
             for i in range(disk[i]):
@@ -60,39 +59,26 @@ def part2():
             for i in range(disk[i]):
                 new_disk.append(".")
 
-    # alloc_list = []
-    # free_list = []
-    # free = False
-    # alloc = True
-    # block_idx = 0
-    # free_idx = 0
-    # for i in range(len(new_disk)):
-    #     char = new_disk[i]
-    #     if char == "." and alloc:
-    #         free = True
-    #         alloc = False
-    #         free_idx = i
-    #         alloc_list.append([i - block_idx, block_idx])
-    #     elif char != "." and free:
-    #         alloc = True
-    #         free = False
-    #         block_idx = i
-    #         free_list.append([free_idx, i - free_idx])
-
-
     #alloc list format, list of allocated space, [length of space, start index]
     #free list format, list of free space, [length of space, start index]
     print(alloc_list)
     print(free_list)
     print(new_disk)
 
-
+    #malloc and free list approach
+    #go reverse order of all allocated data, and then check the free list to see if there's a valid free block
+    #valid free block means that the size of the free block <= size of alloc block, and idx of free block <= idx of alloc block
+    #swap the data of the free block with the alloc block and update the free block size and index or pop
+    #break if the alloc block is allocated
+    #loop
     for i in range(len(alloc_list) - 1, -1, -1):
         block = alloc_list[i]
         size, idx = block[0], block[1]
+
         for i in range(len(free_list)):
             free_block = free_list[i]
             free_size, free_idx = free_block[0], free_block[1]
+            #check for valid free block
             if size <= free_size and free_idx <= idx:
                 for j in range(size):
                     new_disk[free_idx], new_disk[idx + j] = new_disk[idx + j], new_disk[free_idx]
