@@ -1,6 +1,7 @@
 def getAntennas():
     """
     Setup to get the antennas and the grid
+
     :return: Antennas dictionary and array grid
     """
     arr = []
@@ -25,7 +26,8 @@ def getAntennas():
 
 def part1():
     """
-    AOC Day 8 Part 1, colinear antennas
+    AOC Day 8 Part 1, colinear
+
     :return:
     """
     count = 0
@@ -55,6 +57,7 @@ def part1():
 def part2():
     """
     AOC Day 8 Part 2, spanning colinear antennas
+
     :return:
     """
     count = 0

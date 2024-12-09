@@ -1,6 +1,7 @@
 def part2(filesize = None):
     """
     AOC Day 9 Part 2
+
     :param filesize: if true then allocate each filesize as 1 bit.
     :return:
     """

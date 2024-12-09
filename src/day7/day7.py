@@ -5,6 +5,7 @@ sys.setrecursionlimit(10**6)
 def dfs(target, num_list, result, concat=False):
     """
     dfs to find if a set of operations exists to reach target with * + and ||
+
     :param target: target answer
     :param num_list: list of numbers to be operated on
     :param result: result of performing operations
@@ -31,6 +32,7 @@ def dfs(target, num_list, result, concat=False):
 def part2(concat=False):
     """
     AOC Day 8 Part 1 and Part 2, dfs to find valid set of operations to reach target
+
     :param concat: True if using concatenation operator
     :return:
     """
