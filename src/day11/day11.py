@@ -3,9 +3,9 @@ from collections import defaultdict
 
 def blink(stones):
     """
-    do 1 blink on the stones
+    do 1 blink on the stones.
 
-    :param stones: dictionary of stones and count. ORDER DOESN'T MATTER LOL!!!!!!!
+    :param stones: dictionary of stones and count. use a dictionary because ORDER DOESN'T MATTER LOL!!!!!!! only need counts
     :return:
     """
     stonedict = defaultdict(int)
