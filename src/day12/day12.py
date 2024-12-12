@@ -1,8 +1,10 @@
 #ORIGINAL ATTEMPT TO FIND SIDES OF A REGION
 
 #want to take the perimeter of a region and bfs in 1 direction
-#for every bfs, remove the perimeter from the region and sides++
+#for every dfs, remove the perimeter from the region and sides++
 #repeat until all sides are found
+#essentially, walk along the perimeter of the region and change directions once you hit a corner
+#once you hit a corner, you know you've found a side
 #needlessly complex and stupid approach just count the corners
 
 
@@ -170,6 +172,17 @@
 
 
 def removeAreaToBlank(arr, blank, char, row, col):
+    """
+    given a char, find the region that char belongs to by dfs and checking neighboring cells with arr
+    removes the region from arr and returns the modified arr and the isolated region
+
+    :param arr: original grid
+    :param blank: blank copy of grid
+    :param char: char to be searched
+    :param row: row index
+    :param col: col index
+    :return: modified arr and isolated region
+    """
     if row < 0 or row >= len(arr) or col < 0 or col >= len(arr[0]):
         return
     if arr[row][col] != char:
