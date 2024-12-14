@@ -1,6 +1,5 @@
 from matplotlib import pyplot as plt
 
-
 def part1():
     with open("14.txt", "r") as file:
         data = file.read().strip().splitlines()
@@ -86,13 +85,21 @@ def part2():
     cols = 101
 
     def print_grid(j):
-        for robot in arr:
-            x, y = robot[0]
-            plt.scatter(x, cols - y)
+        do_print = True
+        for val in dict.values():
+            if val > 1:
+                do_print = False
+                break
 
-        title = "iteration " + str(j) + ".png"
-        plt.savefig(title)
-        plt.clf()
+        if do_print:
+            for robot in arr:
+                x, y = robot[0]
+                plt.scatter(x, cols - y)
+
+            title = "second " + str(j + 1) + ".png"
+            plt.savefig(title)
+            plt.clf()
+            print("tree at second", j + 1)
 
 
     def countQuads():
@@ -116,6 +123,7 @@ def part2():
 
     ans = []
     for j in range(rows * cols):
+        dict = {}
         for robot in arr:
             robot_x, robot_y = robot[0]
             robot_vx, robot_vy = robot[1]
@@ -127,12 +135,13 @@ def part2():
             robot_y %= rows
 
             robot[0] = (robot_x, robot_y)
-        if j == 6887:
-            print_grid(j)
 
+            if (robot_x, robot_y) not in dict:
+                dict[(robot_x, robot_y)] = 0
+            dict[(robot_x, robot_y)] += 1
+        print_grid(j)
         ans.append(countQuads())
 
-    print(ans.index(min(ans)) + 1, min(ans))
 
 
 
