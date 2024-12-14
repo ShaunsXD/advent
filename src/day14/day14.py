@@ -127,6 +127,8 @@ def part2():
             robot_y %= rows
 
             robot[0] = (robot_x, robot_y)
+        if j == 6887:
+            print_grid(j)
 
         ans.append(countQuads())
 
