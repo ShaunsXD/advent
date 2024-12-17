@@ -107,30 +107,34 @@ def part2(x):
 
 
 
-def example():
-    A = 117440
+def example(x):
+    A = x
     B = 0
     C = 0
+    arr = []
     while A != 0:
         A = A // 8
-        print(A % 8)
+        #print(A % 8)
+        arr.append(A%8)
 
+    return arr
 
 part2(0)
 
 x = 1
 match = -1
+target_example = [0,3,5,4,3,0]
 target = [2,4,1,1,7,5,4,6,0,3,1,4,5,5,3,0]
 while x < 9999999999999999:
     print(x)
     #2,4,1,1,7,5,4,6,0,3,1,4,5,5,3,0
-    arr = part2(x)
+    arr = example(x)
     print(arr)
-    if arr == target:
+    if arr == target_example:
         print(x)
         break
 
-    if arr[match:] == target[match:]:
+    if arr[match:] == target_example[match:]:
         x *= 8
         match -= 1
 
