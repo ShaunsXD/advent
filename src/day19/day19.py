@@ -8,7 +8,6 @@ with open("19.txt", "r") as file:
     patterns = data[0].split(", ")
     strings = data[1].split("\n")
 
-#Count all possible ways you can make the string with patterns
 @functools.cache
 def patternMatch(string):
     if not string:
